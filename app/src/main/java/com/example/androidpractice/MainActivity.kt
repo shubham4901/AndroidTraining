@@ -1,9 +1,7 @@
 package com.example.androidpractice
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var allCalcsValues = mutableListOf<Int>();
+        var allCalcsStrings = mutableListOf<String>();
+
         val number1 = findViewById<EditText>(R.id.num1ET)
         val number2 = findViewById<EditText>(R.id.num2ET)
 
@@ -25,34 +26,95 @@ class MainActivity : AppCompatActivity() {
         val tableBtn = findViewById<Button>(R.id.tableBtn)
         val modeBtn = findViewById<Button>(R.id.modBtn);
 
-        val resultTV = findViewById<TextView>(R.id.resultTV);
+        val resultTv = findViewById<TextView>(R.id.resultTV);
+        val listTv = findViewById<TextView>(R.id.allCalcsTV);
 
 
 
         addBtn.setOnClickListener {
 
-            resultTV.setText((number1.text.toString().toInt()+number2.text.toString().toInt()).toString())
+            val cal = number1.text.toString().toInt()+number2.text.toString().toInt()
+            resultTv.setText(cal.toString())
+            allCalcsValues.add(cal)
+            allCalcsStrings.add(number1.text.toString()+" + "+number2.text.toString()+" = ")
+            var listString = "";
+            var i = 0;
+            do{
+
+                listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                i++
+
+            }while(allCalcsStrings.size > i)
+            listTv.setText(listString);
 
         }
         subBtn.setOnClickListener {
 
-            resultTV.setText((number1.text.toString().toInt()-number2.text.toString().toInt()).toString())
+            val cal = number1.text.toString().toInt()-number2.text.toString().toInt()
+            resultTv.setText(cal.toString())
+            allCalcsValues.add(cal)
+            allCalcsStrings.add(number1.text.toString()+" - "+number2.text.toString()+" = ")
+            var listString = "";
+            var i = 0;
+            do{
+
+                listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                i++
+
+            }while(allCalcsStrings.size > i)
+            listTv.setText(listString);
 
         }
         mulBtn.setOnClickListener {
 
-            resultTV.setText((number1.text.toString().toInt()*number2.text.toString().toInt()).toString())
+            val cal = number1.text.toString().toInt()*number2.text.toString().toInt()
+            resultTv.setText(cal.toString())
+            allCalcsValues.add(cal)
+            allCalcsStrings.add(number1.text.toString()+" * "+number2.text.toString()+" = ")
+            var listString = "";
+            var i = 0;
+            do{
+
+                listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                i++
+
+            }while(allCalcsStrings.size > i)
+            listTv.setText(listString);
 
         }
         divBtn.setOnClickListener {
 
-            resultTV.setText((number1.text.toString().toInt()/number2.text.toString().toInt()).toString())
+            val cal = number1.text.toString().toInt()/number2.text.toString().toInt()
+            resultTv.setText(cal.toString())
+            allCalcsValues.add(cal)
+            allCalcsStrings.add(number1.text.toString()+" / "+number2.text.toString()+" = ")
+            var listString = "";
+            var i = 0;
+            do{
+
+                listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                i++
+
+            }while(allCalcsStrings.size > i)
+            listTv.setText(listString);
 
         }
 
         modeBtn.setOnClickListener {
 
-            resultTV.setText((number1.text.toString().toInt()%number2.text.toString().toInt()).toString())
+            val cal = number1.text.toString().toInt()%number2.text.toString().toInt()
+            resultTv.setText(cal.toString())
+            allCalcsValues.add(cal)
+            allCalcsStrings.add(number1.text.toString()+" % "+number2.text.toString()+" = ")
+            var listString = "";
+            var i = 0;
+            do{
+
+                listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                i++
+
+            }while(allCalcsStrings.size > i)
+            listTv.setText(listString);
 
         }
 
@@ -64,7 +126,7 @@ class MainActivity : AppCompatActivity() {
                 for(i in 1..10) {
                     table = table + "\n"+num+" x "+i+" = "+(num*i)
                 }
-                resultTV.setText(table)
+                resultTv.setText(table)
             }
             if(number2.text.toString().isNotEmpty()) {
                 val num2 = number2.text.toString().toInt()
@@ -72,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                 for(i in 1..10) {
                     table = table + "\n"+num2+" x "+i+" = "+(num2*i)
                 }
-                resultTV.setText(table)
+                resultTv.setText(table)
             }
 
         }
