@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var allCalcsValues = mutableListOf<Int>();
-        var allCalcsStrings = mutableListOf<String>();
+        var allCalcsValues = ArrayList<Int>();
+        var allCalcsStrings = ArrayList<String>();
 
         val number1 = findViewById<EditText>(R.id.num1ET)
         val number2 = findViewById<EditText>(R.id.num2ET)
@@ -41,13 +41,11 @@ class MainActivity : AppCompatActivity() {
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " + " + number2.text.toString() + " = ")
                 var listString = "";
-                var i = 0;
-                do {
+                for (i in 0..allCalcsStrings.size) {
 
                     listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
-                    i++
 
-                } while (allCalcsStrings.size > i)
+                }
                 listTv.setText(listString);
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
@@ -63,13 +61,11 @@ class MainActivity : AppCompatActivity() {
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " - " + number2.text.toString() + " = ")
                 var listString = "";
-                var i = 0;
-                do {
+                for (i in 0..allCalcsStrings.size) {
 
                     listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
-                    i++
 
-                } while (allCalcsStrings.size > i)
+                }
                 listTv.setText(listString);
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
@@ -84,13 +80,11 @@ class MainActivity : AppCompatActivity() {
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " * " + number2.text.toString() + " = ")
                 var listString = "";
-                var i = 0;
-                do {
+                for (i in 0..allCalcsStrings.size) {
 
                     listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
-                    i++
 
-                } while (allCalcsStrings.size > i)
+                }
                 listTv.setText(listString);
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
