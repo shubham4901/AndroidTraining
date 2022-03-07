@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var allCalcsValues = ArrayList<Int>();
-        var allCalcsStrings = ArrayList<String>();
+        val allCalcsValues = ArrayList<Int>()
+        val allCalcsStrings = ArrayList<String>()
 
         val number1 = findViewById<EditText>(R.id.num1ET)
         val number2 = findViewById<EditText>(R.id.num2ET)
@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         val mulBtn = findViewById<Button>(R.id.mulBtn)
         val divBtn = findViewById<Button>(R.id.divBtn)
         val tableBtn = findViewById<Button>(R.id.tableBtn)
-        val modeBtn = findViewById<Button>(R.id.modBtn);
+        val modeBtn = findViewById<Button>(R.id.modBtn)
 
-        val resultTv = findViewById<TextView>(R.id.resultTV);
-        val listTv = findViewById<TextView>(R.id.allCalcsTV);
+        val resultTv = findViewById<TextView>(R.id.resultTV)
+        val listTv = findViewById<TextView>(R.id.allCalcsTV)
 
 
 
@@ -37,16 +37,16 @@ class MainActivity : AppCompatActivity() {
             if(number1.text.isNotEmpty() && number2.text.isNotEmpty()) {
 
                 val cal = number1.text.toString().toInt() + number2.text.toString().toInt()
-                resultTv.setText(cal.toString())
+                resultTv.text = cal.toString()
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " + " + number2.text.toString() + " = ")
-                var listString = "";
+                var listString = ""
                 for (i in 0..allCalcsStrings.size) {
 
-                    listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                    listString = listString + "\n" + allCalcsStrings[i] + allCalcsValues[i]
 
                 }
-                listTv.setText(listString);
+                listTv.text = listString
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
             }
@@ -57,16 +57,16 @@ class MainActivity : AppCompatActivity() {
             if(number1.text.isNotEmpty() && number2.text.isNotEmpty()) {
 
                 val cal = number1.text.toString().toInt() - number2.text.toString().toInt()
-                resultTv.setText(cal.toString())
+                resultTv.text = cal.toString()
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " - " + number2.text.toString() + " = ")
-                var listString = "";
+                var listString = ""
                 for (i in 0..allCalcsStrings.size) {
 
-                    listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                    listString = listString + "\n" + allCalcsStrings[i] + allCalcsValues[i]
 
                 }
-                listTv.setText(listString);
+                listTv.text = listString
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
             }
@@ -76,16 +76,16 @@ class MainActivity : AppCompatActivity() {
             if(number1.text.isNotEmpty() && number2.text.isNotEmpty()) {
 
                 val cal = number1.text.toString().toInt() * number2.text.toString().toInt()
-                resultTv.setText(cal.toString())
+                resultTv.text = cal.toString()
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " * " + number2.text.toString() + " = ")
-                var listString = "";
+                var listString = ""
                 for (i in 0..allCalcsStrings.size) {
 
-                    listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
+                    listString = listString + "\n" + allCalcsStrings[i] + allCalcsValues[i]
 
                 }
-                listTv.setText(listString);
+                listTv.text = listString
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
             }
@@ -95,18 +95,16 @@ class MainActivity : AppCompatActivity() {
             if(number1.text.isNotEmpty() && number2.text.isNotEmpty()) {
 
                 val cal = number1.text.toString().toInt() / number2.text.toString().toInt()
-                resultTv.setText(cal.toString())
+                resultTv.text = cal.toString()
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " / " + number2.text.toString() + " = ")
-                var listString = "";
-                var i = 0;
-                do {
+                var listString = ""
+                for (i in 0..allCalcsStrings.size) {
 
-                    listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
-                    i++
+                    listString = listString + "\n" + allCalcsStrings[i] + allCalcsValues[i]
 
-                } while (allCalcsStrings.size > i)
-                listTv.setText(listString)
+                }
+                listTv.text = listString
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
             }
@@ -117,18 +115,16 @@ class MainActivity : AppCompatActivity() {
             if(number1.text.isNotEmpty() && number2.text.isNotEmpty()) {
 
                 val cal = number1.text.toString().toInt() % number2.text.toString().toInt()
-                resultTv.setText(cal.toString())
+                resultTv.text = cal.toString()
                 allCalcsValues.add(cal)
                 allCalcsStrings.add(number1.text.toString() + " % " + number2.text.toString() + " = ")
-                var listString = "";
-                var i = 0;
-                do {
+                var listString = ""
+                for (i in 0..allCalcsStrings.size) {
 
-                    listString = listString + "\n" + allCalcsStrings.get(i) + allCalcsValues.get(i);
-                    i++
+                    listString = listString + "\n" + allCalcsStrings[i] + allCalcsValues[i]
 
-                } while (allCalcsStrings.size > i)
-                listTv.setText(listString);
+                }
+                listTv.text = listString
             } else {
                 Toast.makeText(applicationContext,"Please Enter both the numbers to complete the calculation",Toast.LENGTH_SHORT).show()
             }
@@ -136,22 +132,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         tableBtn.setOnClickListener {
-            val num: Int;
-            var table: String = "";
+            val num: Int
+            var table = ""
             if(number1.text.toString().isNotEmpty()) {
                 num = number1.text.toString().toInt()
                 for(i in 1..10) {
                     table = table + "\n"+num+" x "+i+" = "+(num*i)
                 }
-                resultTv.setText(table)
+                resultTv.text = table
             }
             if(number2.text.toString().isNotEmpty()) {
                 val num2 = number2.text.toString().toInt()
-                table = table + "\n\n"
+                table += "\n\n"
                 for(i in 1..10) {
                     table = table + "\n"+num2+" x "+i+" = "+(num2*i)
                 }
-                resultTv.setText(table)
+                resultTv.text = table
             }
 
         }
