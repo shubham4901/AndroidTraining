@@ -1,18 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@color/white" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Calculator"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_margin="30dp"
+            android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/num1ET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:background="#DDDBDB"
+        android:hint="Enter number 1"
+        android:textColorHint="#434343"
+        android:padding="10dp"
+        android:inputType="number"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/num2ET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:background="#DDDBDB"
+        android:hint="Enter number 2"
+        android:textColorHint="#434343"
+        android:padding="10dp"
+        android:inputType="number"
+        android:textColor="@color/black" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
+        <TableRow
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="+"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/subBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="-"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/divBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="/"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/mulBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="x"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/tableBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="Table"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/modBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:text="%"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/resultTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Results shows here"
+        android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/headingTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="All Results"
+            android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/allCalcsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="All Results"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+</ScrollView>
